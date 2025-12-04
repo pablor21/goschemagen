@@ -9,7 +9,7 @@ import (
 
 // GetDescription extracts description from various sources based on configuration
 func (c *Config) GetDescription(typeInfo interface{}) string {
-	if c.UseCommentsAsDescription == nil || !*c.UseCommentsAsDescription {
+	if c == nil || c.UseCommentsAsDescription == nil || !*c.UseCommentsAsDescription {
 		return ""
 	}
 
