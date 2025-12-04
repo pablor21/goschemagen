@@ -61,19 +61,22 @@ type Config struct {
 }
 
 func NewConfig() *Config {
-	// // Parse the nested configuration structure
-	// type ConfigFile struct {
-	// 	Plugins struct {
-	// 		Protobuf Config `yaml:"protobuf"`
-	// 	} `yaml:"plugins"`
-	// }
+	// Initialize all pointer fields with default values
+	useCommentsAsDescription := false
+	fieldCase := FieldCaseOriginal
+	useJsonTag := true
+	enumValueCase := FieldCaseUpper
+	enumValueStyle := EnumValueStyleName
+	iotaEnumValueStyle := EnumValueStyleName
 
 	cfg := &Config{
-		CommonConfig: parser.NewConfigWithDefaults().CommonConfig,
+		FieldCase:                &fieldCase,
+		UseJsonTag:               &useJsonTag,
+		UseCommentsAsDescription: &useCommentsAsDescription,
+		EnumValueCase:            &enumValueCase,
+		EnumValueStyle:           &enumValueStyle,
+		IotaEnumValueStyle:       &iotaEnumValueStyle,
+		CommonConfig:             parser.NewConfigWithDefaults().CommonConfig,
 	}
-	// err := yaml.Unmarshal(DefaultConfigData, cfg)
-	// if err != nil {
-	// 	panic("failed to parse default config: " + err.Error())
-	// }
 	return cfg
 }
