@@ -2,7 +2,7 @@ module github.com/pablor21/goschemagen
 
 go 1.25.4
 
-require github.com/pablor21/gonnotation v0.0.5
+require github.com/pablor21/gonnotation v0.0.6
 
 require (
 	golang.org/x/mod v0.30.0 // indirect
